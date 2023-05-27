@@ -10,16 +10,11 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         HttpRequisicao requisicao;
         ClienteHttp clienteHttp;
-        System.out.println("Linguagem: ");
-        final String lang = sc.nextLine();
-
-        System.out.println("API: ");
-        final String api = sc.nextLine();
 
         System.out.println("API Key: ");
         final String key = sc.nextLine();
 
-        requisicao = new HttpRequisicao(api, key);
+        requisicao = new HttpRequisicao(key);
         clienteHttp = new ClienteHttp(requisicao);
 
         System.out.println("Response: " + clienteHttp.enviaRequisicao().body());
