@@ -5,8 +5,8 @@ import br.com.artius.dto.FilmeDTO;
 public class Filme {
     private int rank;
     private String titulo;
-    private int year;
-    private float rating;
+    private int ano;
+    private float nota;
     private String url;
 
     public Filme() {
@@ -14,8 +14,8 @@ public class Filme {
     public Filme(final FilmeDTO filmeDTO) {
         this.rank = Integer.parseInt(filmeDTO.rank());
         this.titulo = filmeDTO.title();
-        this.rating = Float.parseFloat(filmeDTO.rating());
-        this.year = Integer.parseInt(filmeDTO.year());
+        this.nota = Float.parseFloat(filmeDTO.rating());
+        this.ano = Integer.parseInt(filmeDTO.year());
         this.url = filmeDTO.url();
     }
 
@@ -35,27 +35,27 @@ public class Filme {
         this.titulo = titulo;
     }
 
-    public int year() {
-        return year;
+    public int ano() {
+        return ano;
     }
 
-    public void year(final int year) {
-        this.year = year;
+    public void ano(final int year) {
+        this.ano = year;
     }
 
-    public float rating() {
-        return rating;
+    public float nota() {
+        return nota;
     }
 
-    public void rating(final float rating) {
-        this.rating = rating;
+    public void nota(final float rating) {
+        this.nota = rating;
     }
 
-    public String urlImagem() {
+    public String cartaz() {
         return url;
     }
 
-    public void urlImagem(final String url) {
+    public void cartaz(final String url) {
         this.url = url;
     }
 }
