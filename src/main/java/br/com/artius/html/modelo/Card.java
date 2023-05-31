@@ -1,18 +1,9 @@
-package br.com.artius.html;
+package br.com.artius.html.modelo;
 
-import br.com.artius.dto.FilmeDTO;
+import br.com.artius.html.TemplateHTML;
+import br.com.artius.imdb.dto.FilmeDTO;
 
-public class CardHTML {
-    private final String template = """
-            <div class="card">
-                <img src="${cartaz}" alt="${titulo}">
-                <div class="container">
-                    <h2>${rank} ${titulo}</h2>
-                    <p>Ano: ${ano}</p>
-                    <p>Nota: ${nota}</p>
-                </div>
-            </div>
-            """;
+public class Card {
 
     private final String cartaz;
     private final String rank;
@@ -20,7 +11,7 @@ public class CardHTML {
     private final String ano;
     private final String nota;
 
-    public CardHTML(final FilmeDTO filmeDTO) {
+    public Card(final FilmeDTO filmeDTO) {
         this.cartaz = filmeDTO.url();
         this.rank = filmeDTO.rank();
         this.titulo = filmeDTO.title();
@@ -30,7 +21,8 @@ public class CardHTML {
 
     @Override
     public String toString() {
-        return template.replace("${cartaz}", cartaz)
+        return TemplateHTML.CARD
+                        .replace("${cartaz}", cartaz)
                         .replace("${rank}", rank)
                         .replace("${titulo}", titulo)
                         .replace("${ano}", ano)

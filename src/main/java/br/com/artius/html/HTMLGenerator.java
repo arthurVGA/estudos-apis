@@ -1,7 +1,8 @@
 package br.com.artius.html;
 
-import br.com.artius.conversao.FilmeConversor;
-import br.com.artius.dto.FilmeDTO;
+import br.com.artius.html.modelo.Html;
+import br.com.artius.imdb.conversao.FilmeIMDBConversor;
+import br.com.artius.imdb.dto.FilmeDTO;
 import br.com.artius.html.io.HTMLWriter;
 
 import java.util.List;
@@ -16,19 +17,22 @@ public class HTMLGenerator {
         this.tituloHTML = tituloHTML;
     }
 
-    private String geraBody(final List<FilmeDTO> filmesDTO) {
-        final StringBuilder body = new StringBuilder();
-        final FilmeConversor filmeConversor = new FilmeConversor();
-        final List<CardHTML> cards = filmeConversor.filmesToCards(filmesDTO);
+    private String geraCards(final List<FilmeDTO> filmesDTO) {
+        final StringBuilder cards = new StringBuilder();
 
-        for(CardHTML card : cards)
-            body.append(card.toString());
+        for (FilmeDTO filmeDTO : filmesDTO)
+            cards.append(geraCard(filmeDTO));
 
-        return body.toString();
+        return cards.toString();
+    }
+    private String geraCard(FilmeDTO filmesDTO) {
+        return new FilmeIMDBConversor()
+                    .filmeToCard(filmesDTO)
+                    .toString();
     }
 
     public void geraHTML(final List<FilmeDTO> filmesDTO) {
-        final DocumentoHTML html = new DocumentoHTML(tituloHTML, geraBody(filmesDTO));
+        final Html html = new Html(tituloHTML, geraCards(filmesDTO));
         this.writer.escreveArquivoHTML(html.toString());
     }
 

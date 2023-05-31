@@ -1,16 +1,16 @@
-package br.com.artius.conversao;
+package br.com.artius.imdb.conversao;
 
-import br.com.artius.dto.FilmeDTO;
+import br.com.artius.imdb.dto.FilmeDTO;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.util.List;
 
-public class ImdbJsonConversor {
+public class JsonIMDBConversor {
     private final Gson gson;
 
-    public ImdbJsonConversor() {
+    public JsonIMDBConversor() {
         this.gson = new Gson();
     }
 
