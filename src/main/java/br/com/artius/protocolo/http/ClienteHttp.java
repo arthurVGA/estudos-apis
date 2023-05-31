@@ -8,12 +8,16 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 
 public class ClienteHttp {
-    private final HttpRequest requisicao;
     private final HttpClient client;
+    private HttpRequest requisicao;
 
-    public ClienteHttp(final HttpRequisicao requisicao) {
-        this.requisicao = requisicao.GET();
+    public ClienteHttp() {
         this.client = HttpClient.newBuilder().proxy(ProxySelector.getDefault()).build();
+    }
+    public HttpResponse<String> pesquisaTop250Movies(final String apiKey) {
+        final String formatoURI = "https://imdb-api.com/en/API/Top250Movies/%s";
+        requisicao = new HttpRequisicao().get().uri(String.format(formatoURI, apiKey)).request();
+        return enviaRequisicao();
     }
 
     public HttpResponse<String> enviaRequisicao() {

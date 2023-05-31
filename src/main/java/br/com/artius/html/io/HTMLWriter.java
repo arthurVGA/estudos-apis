@@ -10,7 +10,7 @@ public class HTMLWriter {
         this.fileName = "src/main/resources/resultado/" + fileName;
     }
 
-    public void writeHTML(final String html) {
+    public void escreveArquivoHTML(final String html) {
         try (final FileWriter writer = new FileWriter(this.fileName)){
             writer.write(html);
             writer.flush();

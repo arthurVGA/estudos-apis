@@ -1,6 +1,6 @@
 package br.com.artius.html;
 
-import br.com.artius.modelo.Filme;
+import br.com.artius.dto.FilmeDTO;
 
 public class CardHTML {
     private final String template = """
@@ -14,18 +14,26 @@ public class CardHTML {
             </div>
             """;
 
-    private final Filme filme;
+    private final String cartaz;
+    private final String rank;
+    private final String titulo;
+    private final String ano;
+    private final String nota;
 
-    public CardHTML(final Filme filme) {
-        this.filme = filme;
+    public CardHTML(final FilmeDTO filmeDTO) {
+        this.cartaz = filmeDTO.url();
+        this.rank = filmeDTO.rank();
+        this.titulo = filmeDTO.title();
+        this.ano = filmeDTO.year();
+        this.nota = filmeDTO.rating();
     }
 
     @Override
     public String toString() {
-        return template.replace("${cartaz}", filme.cartaz())
-                        .replace("${rank}", Integer.toString(filme.rank()))
-                        .replace("${titulo}", filme.titulo())
-                        .replace("${ano}", Integer.toString(filme.ano()))
-                        .replace("${nota}", Float.toString(filme.nota()));
+        return template.replace("${cartaz}", cartaz)
+                        .replace("${rank}", rank)
+                        .replace("${titulo}", titulo)
+                        .replace("${ano}", ano)
+                        .replace("${nota}", nota);
     }
 }

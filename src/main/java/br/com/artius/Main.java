@@ -12,7 +12,7 @@ public class Main {
         System.out.println("API Key: ");
         final String apiKey = sc.nextLine();
 
-        controller.getTop250Filmes(apiKey);
+        controller.pesquisaTop250Filmes(apiKey);
 
     }
 }

@@ -5,19 +5,27 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpRequest.Builder;
 
 public class HttpRequisicao {
-    private final String key;
-    private final String formatoURI;
+    private Builder builder;
 
-    public HttpRequisicao(final String key) {
-        this.key = key;
-        this.formatoURI = "https://imdb-api.com/en/API/Top250Movies/%s";
+    public HttpRequisicao() {
+        this.builder = HttpRequest.newBuilder();
     }
 
-    public HttpRequest GET() {
-        return HttpRequest.newBuilder()
-                            .GET()
-                            .uri(URI.create(String.format(formatoURI, key)))
-                            .build();
+    public HttpRequisicao get() {
+        this.builder = this.builder.GET();
+        return this;
     }
 
+    public HttpRequisicao uri(final URI uri) {
+        this.builder = this.builder.uri(uri);
+        return this;
+    }
+
+    public HttpRequisicao uri(final String uri) {
+        return this.uri(URI.create(uri));
+    }
+
+    public HttpRequest request() {
+        return builder.build();
+    }
 }
