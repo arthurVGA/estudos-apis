@@ -14,9 +14,9 @@ public class ClienteHttp {
     public ClienteHttp() {
         this.client = HttpClient.newBuilder().proxy(ProxySelector.getDefault()).build();
     }
-    public HttpResponse<String> pesquisaTop250Movies(final String apiKey) {
-        final String formatoURI = "https://imdb-api.com/en/API/Top250Movies/%s";
-        requisicao = new HttpRequisicao().get().uri(String.format(formatoURI, apiKey)).request();
+
+    public HttpResponse<String> enviarRequisicao(final String requisicaoURL) {
+        requisicao = new HttpRequisicao().get().uri(requisicaoURL).request();
         return enviaRequisicao();
     }
 
