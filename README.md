@@ -6,7 +6,8 @@
         <li>2/7 Extraido algumas informações desse JSON, como o título dos filmes e a URL dos pôsteres;</li>
         <li>3/7 Modelagem das informações extraidas do JSON em um Objeto (Filme). Foi utilizado Record para ser o DTO (Data Transfer Object);</li>
         <li>4/7 Gerar o retorno dos filmes como HTML;</li>
-        <li>5/7 Refatorações do código e encapsulamento.</li>
+        <li>5/7 Refatorações do código e encapsulamento;</li>
+        <li>6/7 Generalizar código para que possa comportar a API da Marvel.</li>
     </ul>
     <p>Observação: para poder executar o projeto é necessário a api key da <a href="https://imdb-api.com/">API do IMDB</a>.</p>
 </body>
