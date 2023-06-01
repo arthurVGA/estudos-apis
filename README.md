@@ -9,5 +9,5 @@
         <li>5/7 Refatorações do código e encapsulamento;</li>
         <li>6/7 Generalizar código para que possa comportar a API da Marvel.</li>
     </ul>
-    <p>Observação: para poder executar o projeto é necessário a api key da <a href="https://imdb-api.com/">API do IMDB</a>.</p>
+    <p>Observação: para poder executar o projeto é necessário a api key da <a href="https://imdb-api.com/">API do IMDB</a> ou o api key da <a href="https://developer.marvel.com/">Marvel</a></p>
 </body>
