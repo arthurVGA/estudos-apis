@@ -15,7 +15,7 @@ public class GeradorHTML {
     public void getConteudo(final String conteudo) {
         String html = TemplateHTML.HTML
                 .replaceAll("[$]title", tituloHTML)
-                .replace("$content", conteudo);
+                .replace("\"{$content}\"", conteudo);
 
         this.writer.escreveArquivoHTML(html);
     }

@@ -8,22 +8,22 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        ComicController comicController = new ComicController();
+        filmeAPI(sc);
+//        comicAPI(sc);
+    }
 
+    private static void comicAPI(Scanner sc) {
         System.out.println("API Key Marvel: ");
         final String apiKeyMarvel = sc.nextLine();
         System.out.println("Hash: ");
         final String hashMarvel = sc.nextLine();
 
-//        filmeAPI(sc);
-        comicController.pesquisaSeries(apiKeyMarvel, hashMarvel);
-
+        new ComicController().pesquisaSeries(apiKeyMarvel, hashMarvel);
     }
 
     private static void filmeAPI(Scanner sc) {
-        FilmeController filmecontroller = new FilmeController();
         System.out.println("API Key IMDB: ");
         final String apiKeyIMDB = sc.nextLine();
-        filmecontroller.pesquisaTop250Filmes(apiKeyIMDB);
+        new FilmeController().pesquisaTop250Filmes(apiKeyIMDB);
     }
 }
